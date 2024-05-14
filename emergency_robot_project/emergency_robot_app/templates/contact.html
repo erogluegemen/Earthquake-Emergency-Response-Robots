@@ -1,0 +1,141 @@
+<!-- emergency_robot_app/templates/about.html -->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Contact - ERMS{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2 class="text-center mb-4">Acknowledgements</h2>
+            <p class="lead">We extend our gratitude to our advisors, <b>Asst. Prof. Fatih Kahraman, Asst. Prof. Ece Gelal Soyak, Asst. Prof. Ayşe Kavuşturucu, and Asst. Prof. Gökhan Gelişen</b>, for their invaluable support and guidance throughout the development of the project.</p>
+        </div>
+    </div>
+    
+    <!-- Academics Section -->
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <h3><u>Academics</u></h3>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 border-light shadow">
+                <img src="{% static 'fatih_kahraman.jpeg' %}" class="card-img-top custom-card-img" alt="...">
+                <div class="card-body text-white bg-dark">
+                    <h5 class="card-title">Assist. Prof. Fatih Kahraman</h5>
+                    <p class="card-text"><a href="mailto:fatih.kahraman@bau.edu.tr" class="text-white">fatih.kahraman@bau.edu.tr</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 border-light shadow">
+                <img src="{% static 'ece_gelal_soyak.jpeg' %}" class="card-img-top custom-card-img" alt="...">
+                <div class="card-body text-white bg-dark">
+                    <h5 class="card-title">Assist. Prof. Ece Gelal Soyak</h5>
+                    <p class="card-text"><a href="mailto:ece.gelalsoyak@bau.edu.tr" class="text-white">ece.gelalsoyak@bau.edu.tr</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 border-light shadow">
+                <img src="{% static 'ayse_kavurucu.jpeg' %}" class="card-img-top custom-card-img" alt="...">
+                <div class="card-body text-white bg-dark">
+                    <h5 class="card-title">Assist Prof. Ayşe Kavuşturucu</h5>
+                    <p class="card-text"><a href="mailto:ayse.kavusturucu@bau.edu.tr" class="text-white">ayse.kavusturucu@bau.edu.tr</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 border-light shadow">
+                <img src="{% static 'gokhan_gelisen.jpeg' %}" class="card-img-top custom-card-img" alt="...">
+                <div class="card-body text-white bg-dark">
+                    <h5 class="card-title">Assist. Prof. Gökhan Gelişen</h5>
+                    <p class="card-text"><a href="mailto:gokhan.gelisen@bau.edu.tr" class="text-white">gokhan.gelisen@bau.edu.tr</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Students Section -->
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <h3><u>Students</u></h3>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 border-light shadow">
+                <img src="{% static 'ece_akdeniz.jpeg' %}" class="card-img-top custom-card-img" alt="...">
+                <div class="card-body text-white bg-dark">
+                    <h5 class="card-title">Ece Akdeniz</h5>
+                    <p class="card-text"><i>AI & Computer Engineering</i></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 border-light shadow">
+                <img src="{% static 'egemen_eroglu.jpeg' %}" class="card-img-top custom-card-img" alt="...">
+                <div class="card-body text-white bg-dark">
+                    <h5 class="card-title">Egemen Eroğlu</h5>
+                    <p class="card-text"><i>Computer Engineering</i></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 border-light shadow">
+                <img src="{% static 'hürcan_sayar.jpeg' %}" class="card-img-top custom-card-img" alt="...">
+                <div class="card-body text-white bg-dark">
+                    <h5 class="card-title">Yahya Hürcan Sayar</h5>
+                    <p class="card-text"><i>Industrial Engineering</i></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 border-light shadow">
+                <img src="{% static 'adil_haktan_teymur.jpeg' %}" class="card-img-top custom-card-img" alt="...">
+                <div class="card-body text-white bg-dark">  
+                    <h5 class="card-title">Adil Haktan Teymur</h5>
+                    <p class="card-text"><i>Industrial Engineering</i></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 border-light shadow">
+                <img src="{% static 'blank.jpeg' %}" class="card-img-top custom-card-img" alt="...">
+                <div class="card-body text-white bg-dark">
+                    <h5 class="card-title">Barış Güllü</h5>
+                    <p class="card-text"><i>Industrial Engineering</i></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 border-light shadow">
+                <img src="{% static 'blank.jpeg' %}" class="card-img-top custom-card-img" alt="...">
+                <div class="card-body text-white bg-dark">
+                    <h5 class="card-title">Cem Sinan Akyüz</h5>
+                    <p class="card-text"><i>Civil Engineering</i></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 border-light shadow">
+                <img src="{% static 'blank.jpeg' %}" class="card-img-top custom-card-img" alt="...">
+                <div class="card-body text-white bg-dark">
+                    <h5 class="card-title">Ömer Faruk Balcı</h5>
+                    <p class="card-text"><i>Civil Engineering</i></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 border-light shadow">
+                <img src="{% static 'blank.jpeg' %}" class="card-img-top custom-card-img" alt="...">
+                <div class="card-body text-white bg-dark">
+                    <h5 class="card-title">Batuhan Hakan Dere</h5>
+                    <p class="card-text"><i>Civil Engineering</i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

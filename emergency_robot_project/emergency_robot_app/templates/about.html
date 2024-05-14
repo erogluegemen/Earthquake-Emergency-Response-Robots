@@ -1,0 +1,19 @@
+<!-- emergency_robot_app/templates/about.html -->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}About - ERMS{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2 class="text-center mb-4">About Emergency Robot Management System (ERMS)</h2>
+            <p class="lead">The <b>"Earthquake Emergency Response Robots"</b> project aims to create, develop, and implement systems specifically designed to handle post-earthquake situations. The main focus of the project is to build adaptable robots that come equipped with sensors and communication capabilities. <br>These robots will be able to navigate through areas affected by disasters, assess the extent of damage, locate survivors, and deliver essential supplies. By incorporating cutting-edge technologies, like artificial intelligence and remote operation interfaces, the robots' autonomy and effectiveness in responding to changing and unpredictable situations are greatly enhanced. <br>The ultimate objective is to enhance rescue operations efficiency, safety measures, and response speed, thereby contributing towards disaster management and mitigation efforts.</p>
+            <i><p class="text-dark"><b>Disclaimer:</b> This project is still in the testing and prototype phase.</p></i>
+            <a href="{% url 'system_architecture' %}" class="btn btn-primary btn-lg">Check System Architecture</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

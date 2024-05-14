@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% block title %}ERMS - Control Panel{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card bg-dark" style="height: 100%;">
+                <div class="card-body d-flex flex-column justify-content-start">
+                    <h5 class="card-title text-center text-white">Robot Controller</h5>
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col d-flex justify-content-center">
+                                    <button type="submit" name="action" value="Move Forward" class="btn btn-success btn-lg rounded-pill">Move Forward</button>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col d-flex justify-content-center">
+                                    <button type="submit" name="action" value="Turn Left" class="btn btn-info btn-lg rounded-pill">Turn Left</button>
+                                    <button type="submit" name="action" value="Turn Right" class="btn btn-info btn-lg rounded-pill ms-3">Turn Right</button>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col d-flex justify-content-center">
+                                    <button type="submit" name="action" value="Move Backward" class="btn btn-danger btn-lg rounded-pill">Move Backward</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card bg-dark">
+                <div class="card-body">
+                    <h5 class="card-title text-center text-white">Robot Camera Stream</h5>
+                    <div class="text-center">
+                        <img src="{% url 'camera_stream' %}" class="img-fluid rounded" style="max-height: 400px;">
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="{% url 'camera_stream' %}" class="btn btn-primary btn-lg">View Full Screen</a>
+                        <a href="{% url 'take_picture' %}" class="btn btn-success btn-lg">Take Picture</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card bg-dark">
+                <div class="card-body">
+                    <h5 class="card-title text-center text-white">Microphone Sound Wave Stream</h5>
+                    <div class="text-center">
+                        <canvas id="soundCanvas" width="800" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card bg-dark">
+                <div class="card-body">
+                    <h5 class="card-title text-center text-white">Location Based Information</h5>
+                    <div class="text-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+
+
+<script>
+    function visualizeSound() {
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(function(stream) {
+                const audioContext = new AudioContext();
+                const analyser = audioContext.createAnalyser();
+                const microphone = audioContext.createMediaStreamSource(stream);
+                const canvas = document.getElementById("soundCanvas");
+                const canvasCtx = canvas.getContext("2d");
+
+                microphone.connect(analyser);
+
+                analyser.fftSize = 2048;
+                const bufferLength = analyser.frequencyBinCount;
+                const dataArray = new Uint8Array(bufferLength);
+
+                function drawSoundWave() {
+                    requestAnimationFrame(drawSoundWave);
+                    analyser.getByteTimeDomainData(dataArray);
+
+                    canvasCtx.fillStyle = 'rgb(200, 200, 200)';
+                    canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    canvasCtx.lineWidth = 2;
+                    canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
+
+                    canvasCtx.beginPath();
+
+                    const sliceWidth = canvas.width * 1.0 / bufferLength;
+                    let x = 0;
+
+                    for(let i = 0; i < bufferLength; i++) {
+                        const v = dataArray[i] / 128.0;
+                        const y = v * canvas.height / 2;
+
+                        if(i === 0) {
+                            canvasCtx.moveTo(x, y);
+                        } else {
+                            canvasCtx.lineTo(x, y);
+                        }
+
+                        x += sliceWidth;
+                    }
+
+                    canvasCtx.lineTo(canvas.width, canvas.height / 2);
+                    canvasCtx.stroke();
+                }
+                drawSoundWave();
+            })
+            .catch(function(err) {
+                console.log("Error accessing microphone: " + err);
+            });
+    }
+    function resizeCanvas() {
+    const canvas = document.getElementById("soundCanvas");
+    const cardBody = document.querySelector(".card-body");
+
+    const newWidth = cardBody.offsetWidth;
+    const newHeight = cardBody.offsetHeight;
+    
+    canvas.width = 500;
+    canvas.height = 250;
+    }
+    window.onload = function() {
+        visualizeSound(); 
+        resizeCanvas(); 
+        window.addEventListener('resize', resizeCanvas);
+    };
+</script>
+{% endblock %}

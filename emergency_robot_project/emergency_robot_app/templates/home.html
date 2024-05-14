@@ -1,0 +1,14 @@
+<!-- emergency_robot_app/templates/home.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Home - ERMS{% endblock %}
+
+{% block content %}
+<div class="container py-5 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="text-center">
+        <h1 class="display-4 mb-4">Welcome to the Emergency Robot Management System (ERMS)</h1>
+        <a href="{% url 'control_panel' %}" class="btn btn-primary btn-lg">Get Started</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}About - ERMS{% endblock %}
+
+{% block content %}
+<div class="container py-5 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="text-center">
+        <h2>Select a Model to Preview Data</h2>
+        <form id="modelForm" method="post">
+            {% csrf_token %}
+            <div class="dropdown mt-4">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    Select Model
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><button type="submit" class="dropdown-item" name="model" value="EarthquakeVictim">EarthquakeVictim</button></li>
+                    <li><button type="submit" class="dropdown-item" name="model" value="CameraSensorData">CameraSensorData</button></li>
+                    <li><button type="submit" class="dropdown-item" name="model" value="MicrophoneSensorData">MicrophoneSensorData</button></li>
+                    <li><button type="submit" class="dropdown-item" name="model" value="PIRSensorData">PIRSensorData</button></li>
+                    <li><button type="submit" class="dropdown-item" name="model" value="InfraredCameraSensorData">InfraredCameraSensorData</button></li>
+                    <li><button type="submit" class="dropdown-item" name="model" value="Picture">Picture</button></li>
+                </ul>
+            </div>
+        </form>
+        <div id="preview-data" class="mt-5">
+            {% if html_table %}
+                {{ html_table|safe }}
+            {% else %}
+                <p>No data to display</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

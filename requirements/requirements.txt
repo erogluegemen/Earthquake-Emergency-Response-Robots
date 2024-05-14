@@ -1,0 +1,9 @@
+Django==4.2.8
+matplotlib==3.7.0
+numpy==1.23.5
+opencv_contrib_python==4.7.0.72
+opencv_python==4.7.0.72
+opencv_python_headless==4.9.0.80
+pandas==1.5.3
+pyaudio==0.2.14
+ultralytics==8.0.211
