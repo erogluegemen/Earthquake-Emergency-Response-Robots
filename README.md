@@ -51,5 +51,5 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 ## Contact
 For any inquiries or feedback, please contact the project team at: <br>
-[@Egemen Eroglu](https://github.com/erogluegemen)
-[@Ece Akdeniz](https://github.com/ece-akdeniz) <br>
+[@Egemen Eroglu](https://github.com/erogluegemen) <br>
+[@Ece Akdeniz](https://github.com/ece-akdeniz) 
