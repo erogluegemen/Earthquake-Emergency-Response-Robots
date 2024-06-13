@@ -40,14 +40,6 @@ The Earthquake Emergency Response Robots project is a capstone project undertake
 ## System Architecture
 ![system](https://github.com/erogluegemen/Earthquake-Emergency-Response-Robots/assets/30879498/32f483e3-5387-4adf-bdf7-a8367700df13)
 
-## Getting Started
-1. Clone the repository from [GitHub](https://github.com/erogluegemen/Earthquake-Emergency-Response-Robots).
-2. Install the necessary dependencies listed in the `requirements.txt` file.
-3. Set up the hardware components as described in the documentation.
-4. Configure the settings according to your environment (e.g., database configurations, API keys).
-5. Run the Django server using the `python manage.py runserver` command.
-6. Access the web application from your browser at `http://localhost:8000`.
-
 ## Contributing
 We welcome contributions from the community. If you're interested in contributing to the Earthquake Emergency Response Robots project, please follow these guidelines:
 - Fork the repository.
